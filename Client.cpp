@@ -281,6 +281,12 @@ int main(int argc, char* argv[]) {
 				std::string book_id;
 				std::cout << "id=";
 				std::cin >> book_id;
+
+				// verific validitatea datelor introduse
+				if (book_id.empty() || !std::all_of(book_id.begin(), book_id.end(), ::isdigit)) {
+					std::cout << OUTPUT_ASCII << ERROR_MESSAGE << "Invalid input (book_id has to be a number/empty input)" << std::endl;
+					continue;
+				}
 				std::string message = send_get_request(SERVER_ADDR, GET_BOOK_ROUTE + book_id, session_cookie, jwt_token);
 				response = parse_http_response(message);
 				// afisez in caz de eroare
@@ -339,6 +345,12 @@ int main(int argc, char* argv[]) {
 				std::string book_id;
 				std::cout << "id=";
 				std::cin >> book_id;
+
+				// verific validitatea datelor introduse
+				if (book_id.empty() || !std::all_of(book_id.begin(), book_id.end(), ::isdigit)) {
+					std::cout << OUTPUT_ASCII << ERROR_MESSAGE << "Invalid input (book_id has to be a number/empty input)" << std::endl;
+					continue;
+				}
 
 				std::string message = send_delete_request(SERVER_ADDR, DELETE_BOOK_ROUTE + book_id, session_cookie, jwt_token);
 				response = parse_http_response(message);
