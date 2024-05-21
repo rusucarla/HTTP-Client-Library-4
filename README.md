@@ -39,8 +39,7 @@ Functia intoarce un obiect de tipul `Response` care contine informatiile
 preliminare despre raspunsul serverului : status code si status message.
 
 Acesta este folosit pentru a afisa niste mesaje de eroare sau de succes dar care
-sa contina si informatii pertinente in cazul unei erori. (functia
-`print_response_message`)
+sa contina si informatii pertinente. (functia `print_response_message`)
 
 ### Comenzile
 
@@ -57,6 +56,13 @@ token-ului JWT (in cazurile in care e vorba de manipularea bibliotecii).
 Pentru a gestiona spatiile din input-urile de la `add_book` si de la
 `login`/`register` am folosit citirea prin `std::getline` si
 `std::cin.ignore()`, fata de uzualul `std::cin`.
+
+Pentru a asigura validitatea datelor de input, am verificat conditiile impuse de
+cerinta:
+
+- fara spatii in username si password
+- fara input gol
+- page_count trebuie sa fie un numar
 
 ### JSON
 
